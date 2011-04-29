@@ -10,6 +10,7 @@ var util = require('util');
 
 var app = module.exports = express.createServer();
 var pub = __dirname + '/public';
+var pubScripts = __dirname + '/public/scripts';
 
 // set-up database
 var mongo = require('mongodb');
@@ -81,6 +82,7 @@ app.configure(function(){
   app.use(express.session({ secret: 'your secret here' }));
   app.use(app.router);
   app.use(express.compiler({ src: pub, enable: ['less'] }));
+  app.use express.compiler(src: pubScripts, dest: pubScripts, enable: ['coffeescript'])
   app.use(express.static(pub));
   app.use(express.errorHandler({ dump: true, stack: true }));
 });
