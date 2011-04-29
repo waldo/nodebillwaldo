@@ -7,7 +7,6 @@
 @light_shadow: #ddd;
 @translucent: rgba(255, 255, 255, 0.1);
 @off_white: #eee;
-@centre_width: 500px;
 
 // mix-in
 .the-font {
@@ -16,22 +15,16 @@
   color: @grey;
 }
 
-.centre_margin {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 // common
 body {
   .the-font;
-  text-align: center;
   -webkit-text-stroke: 1px @translucent;
 }
 
 h1, h2 {
   margin: 0;
-  font-size: 22px;
+  font-size: 28px;
+  text-align: center;
   color: @mostly_black;
 }
 
@@ -42,9 +35,7 @@ h1 {
 
 // bills
 .bills {
-  .centre_margin;
   text-align: left;
-  width: @centre_width;
   .bill {
     margin: 10px;
     margin-bottom: 40px;
@@ -52,9 +43,7 @@ h1 {
       display: inline;
     }
     .payees {
-      .centre_margin;
       color: @lighter_grey;
-      width: @centre_width * .6;
       .name {
         background-color: @off_white;
         color: @grey;
@@ -74,11 +63,10 @@ h1 {
 // forms
 input, textarea, select, label {
   .the-font;
-  .centre_margin;
   color: @really_black;
-  width: @centre_width;
   margin-bottom: 10px;
   text-align: left;
+  width: 100%;
 }
 
 input.bill-delete {

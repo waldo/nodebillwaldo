@@ -2,14 +2,13 @@ $(document).ready(function(){
 
   function toggleNewBill() {
     $(".new-bills").toggle();
-    $("a.new-bill").toggle();
+    $(".new-bill").toggle();
   }
 
-  $(".new-bills").toggle()
-    .after("<a class='new-bill'>Add a new bill</a>")
-    .before("<div id='result'></div>").hide();
+  $(".new-bills").hide()
+    .after("<div class='new-bill'><a>Add a new bill</a></div>");
 
-  $("a.new-bill").click(function(event){
+  $("div.new-bill").click(function(event){
     toggleNewBill();
   });
   
@@ -23,7 +22,6 @@ $(document).ready(function(){
     $.post(url, term, function(data) {
       $("#description, #amount").val("");
       toggleNewBill();
-
       $("#bills").append(data);
     });
   });

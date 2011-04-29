@@ -39,6 +39,19 @@ exports.findById = function(id, callback){
   });
 };
 
+exports.deleteById = function(id, callback){
+  collection(function(bill_collection) {
+    bill_collection.remove({'_id': bson.ObjectID.createFromHexString(id)}, {}, function(err, result) {
+      if (err) {
+        callback(err, null);
+      }
+      else {
+        callback(null, result);
+      }
+    });
+  });
+};
+
 exports.save = function(bills, callback){
   collection(function(bill_collection){
     if (typeof(bills.length)=="undefined") {

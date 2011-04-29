@@ -137,6 +137,19 @@ app.post('/new', function(req, res){
   }
 });
 
+app.post('/bills/:id/delete', function(req, res){
+  bills.deleteById(req.params.id, function(err, bill) {
+    if (err) {
+      res.redirect('/');
+      req.flash('error', 'Couldn\'t delete that bill :(');
+    }
+    else {
+      res.redirect('/');
+      req.flash('info', 'Deleted!');
+    }
+  });
+});
+
 // Only listen on $ node app.js
 if (!module.parent) {
   app.listen(process.env.VMC_APP_PORT || 3000);

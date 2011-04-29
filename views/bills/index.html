@@ -1,10 +1,26 @@
-<h1>BillWaldo</h1>
-<div id="bills">
-  {{each(i, item) bills}}
-    {{partial({bill: item}) 'bills/view'}}
-  {{/each}}
+<div class="container header">
+  <div class="row">
+    <div class="twelvecol heading">
+      <h1>BillWaldo</h1>
+    </div>
+  </div>
 </div>
-<div class="new-bills">
-  <h2>Add a new bill</h2>
-  {{partial 'bills/new'}}
+<div class="container bills">
+  <div class="row">
+    <div class="threecol actions">
+    </div>
+    <div id="bills" class="sixcol">
+      {{each(i, item) bills}}
+        {{partial({bill: item}) 'bills/view'}}
+      {{/each}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="threecol">
+    </div>
+    <div class="sixcol new-bills">
+      <h2>Add a new bill</h2>
+      {{partial 'bills/new'}}
+    </div>
+  </div>
 </div>
