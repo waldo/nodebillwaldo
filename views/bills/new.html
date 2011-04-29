@@ -1,0 +1,37 @@
+<form id="bill" method="post" action="/new">
+    <label for="payer">Payer</label>
+    <select id="payer" name="bill[payer]">
+      <option value="chris">Chris</option>
+      <option value="craig">Craig</option>
+      <option value="frances">Frances</option>
+      <option value="helena">Helena</option>
+      <option value="ivan">Ivan</option>
+      <option value="jon">Jon</option>
+      <option value="letizia">Letizia</option>
+      <option value="liz">Liz</option>
+      <option value="melissa">Melissa</option>
+      <option value="waldo">Waldo</option>
+    </select>
+
+    <label for="description">Description</label>
+    <input id="description" type="text" name="bill[description]" />
+
+    <label for="amount">Amount</label>
+    <input id="amount" type="text" name="bill[amount]">
+
+    <label for="payees">Applies to</label>
+    <select id="payees" multiple="multiple" name="bill[payees]">
+      <option selected="true" value="chris">Chris</option>
+      <option selected="true" value="craig">Craig</option>
+      <option selected="true" value="frances">Frances</option>
+      <option selected="true" value="helena">Helena</option>
+      <option selected="true" value="ivan">Ivan</option>
+      <option selected="true" value="jon">Jon</option>
+      <option selected="true" value="letizia">Letizia</option>
+      <option selected="true" value="liz">Liz</option>
+      <option selected="true" value="melissa">Melissa</option>
+      <option selected="true" value="waldo">Waldo</option>
+    </select>
+
+    <input id="submit" type="submit" value="Add" />
+</form>

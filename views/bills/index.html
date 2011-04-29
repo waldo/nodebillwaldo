@@ -1,0 +1,10 @@
+<h1>BillWaldo</h1>
+<div id="bills">
+  {{each(i, item) bills}}
+    {{partial({bill: item}) 'bills/view'}}
+  {{/each}}
+</div>
+<div class="new-bills">
+  <h2>Add a new bill</h2>
+  {{partial 'bills/new'}}
+</div>

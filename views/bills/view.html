@@ -1,0 +1,13 @@
+    <div class="bill">
+      <a href="/bills/${bill._id}">
+        <span class="description">${bill.description}</span>
+      </a>
+      - <span class="payer">${bill.payer}</span>
+      - <span class="amount">${bill.amount}</span>
+      <div class="payees">
+        {{partial(bill.payees) 'bills/payee'}}
+      </div>
+      <form class="bill-delete" method="post" action="/bills/${bill._id}/delete">
+        <input id="bill-delete-${bill._id}" class="bill-delete" type="submit" value="Delete" />
+      </form>
+    </div>
