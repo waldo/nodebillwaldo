@@ -9,7 +9,7 @@
     $("div.new-bill").click(function(event) {
       return toggleNewBill();
     });
-    return $("form#bill").submit(function() {
+    return $("form.bill").submit(function() {
       var $form, term, url;
       event.preventDefault();
       $form = $(this);
@@ -17,7 +17,6 @@
       url = $form.attr("action");
       return $.post(url, term, function(data) {
         $("#description, #amount").val("");
-        toggleNewBill();
         return $("#bills").append(data);
       });
     });

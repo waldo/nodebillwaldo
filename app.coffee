@@ -95,11 +95,13 @@ app.configure "production", () ->
 
 # Routes
 app.get "/", (req, res) ->
-  bills.findAll (bills) ->
+  bills.findAll (b) ->
+    calc = bills.calculate b
     res.render "bills/index",
       title: "bills"
-      bills: bills
+      bills: b
       util: util
+      calc: calc
 
 app.get "/bills/:id", (req, res) ->
   bills.findById req.params.id, (err, bill) ->

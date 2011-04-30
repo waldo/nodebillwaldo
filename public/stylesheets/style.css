@@ -20,20 +20,20 @@ h1 {
   text-shadow: 1px 2px 2px #dddddd;
   font-size: 60px;
 }
-.bills {
+div.bills {
   text-align: left;
 }
-.bills .bill {
+div.bills div.bill {
   margin: 10px;
   margin-bottom: 40px;
 }
-.bills .bill a div {
+div.bills div.bill a div {
   display: inline;
 }
-.bills .bill .payees {
+div.bills div.bill .payees {
   color: #887788;
 }
-.bills .bill .payees .name {
+div.bills div.bill .payees .name {
   background-color: #eeeeee;
   color: #555555;
   display: inline;
@@ -62,4 +62,11 @@ input.bill-delete {
 }
 a {
   cursor: pointer;
+}
+div.to-pay {
+  line-height: 2.5em;
+}
+form.bill input {
+  margin: 0px;
+  text-align: center;
 }

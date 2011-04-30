@@ -89,11 +89,14 @@
     return app.use(express.errorHandler());
   });
   app.get("/", function(req, res) {
-    return bills.findAll(function(bills) {
+    return bills.findAll(function(b) {
+      var calc;
+      calc = bills.calculate(b);
       return res.render("bills/index", {
         title: "bills",
-        bills: bills,
-        util: util
+        bills: b,
+        util: util,
+        calc: calc
       });
     });
   });

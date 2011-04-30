@@ -8,7 +8,7 @@ $(document).ready () ->
   $("div.new-bill").click (event) ->
     toggleNewBill()
   
-  $("form#bill").submit () ->
+  $("form.bill").submit () ->
     event.preventDefault()
 
     $form = $(this)
@@ -17,5 +17,4 @@ $(document).ready () ->
 
     $.post url, term, (data) ->
       $("#description, #amount").val("")
-      toggleNewBill()
       $("#bills").append(data)
