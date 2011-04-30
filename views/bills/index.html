@@ -8,20 +8,20 @@
 <div class="container bills">
   <div class="row">
     <div class="threecol actions">
-      {{each(i, item) calc.summary}}
-        {{partial({summary: item}) 'bills/summary'}}
-      {{/each}}
+      {{if calc.summary.length}}
+        {{each(i, item) calc.summary}}
+          {{partial({summary: item}) 'bills/summary'}}
+        {{/each}}
+      {{else}}
+        <p>Yay, all balanced.</p>
+      {{/if}}
     </div>
     <div id="bills" class="sixcol">
       {{each(i, item) bills}}
         {{partial({bill: item}) 'bills/view'}}
       {{/each}}
     </div>
-  </div>
-  <div class="row">
-    <div class="threecol">
-    </div>
-    <div class="sixcol new-bills">
+    <div class="threecol last new-bills">
       <h2>Add a new bill</h2>
       {{partial 'bills/new'}}
     </div>

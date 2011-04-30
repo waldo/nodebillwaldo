@@ -96,6 +96,7 @@ app.configure "production", () ->
 # Routes
 app.get "/", (req, res) ->
   bills.findAll (b) ->
+    b = b.reverse()
     calc = bills.calculate b
     res.render "bills/index",
       title: "bills"

@@ -91,6 +91,7 @@
   app.get("/", function(req, res) {
     return bills.findAll(function(b) {
       var calc;
+      b = b.reverse();
       calc = bills.calculate(b);
       return res.render("bills/index", {
         title: "bills",

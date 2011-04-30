@@ -16,5 +16,16 @@ $(document).ready () ->
     url = $form.attr("action")
 
     $.post url, term, (data) ->
-      $("#description, #amount").val("")
-      $("#bills").append(data)
+      $form.find("#description, #amount").val("")
+      $("#bills").prepend(data)
+
+  $("form.mini-bill").submit () ->
+    event.preventDefault()
+
+    $form = $(this)
+    term = $form.find(":input").serializeArray()
+    url = $form.attr("action")
+
+    $.post url, term, (data) ->
+      $form.parent().parent().hide()
+      $("#bills").prepend(data)

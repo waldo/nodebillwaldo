@@ -7,7 +7,7 @@
         - <span class="amount">${bill.amount}</span>
       </div>
       <div class="fourcol payees">
-        {{partial(bill.payees) 'bills/payee'}} - (${bill.payees.length})
+        {{partial(bill.payees) 'bills/payee'}} - (${bill.payees.length} ppl)
       </div>
       <div class="onecol">
         <form class="bill-delete" method="post" action="/bills/${bill._id}/delete">

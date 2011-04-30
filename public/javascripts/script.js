@@ -9,15 +9,26 @@
     $("div.new-bill").click(function(event) {
       return toggleNewBill();
     });
-    return $("form.bill").submit(function() {
+    $("form.bill").submit(function() {
       var $form, term, url;
       event.preventDefault();
       $form = $(this);
       term = $form.find(":input").serializeArray();
       url = $form.attr("action");
       return $.post(url, term, function(data) {
-        $("#description, #amount").val("");
-        return $("#bills").append(data);
+        $form.find("#description, #amount").val("");
+        return $("#bills").prepend(data);
+      });
+    });
+    return $("form.mini-bill").submit(function() {
+      var $form, term, url;
+      event.preventDefault();
+      $form = $(this);
+      term = $form.find(":input").serializeArray();
+      url = $form.attr("action");
+      return $.post(url, term, function(data) {
+        $form.parent().parent().hide();
+        return $("#bills").prepend(data);
       });
     });
   });
