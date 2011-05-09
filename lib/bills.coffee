@@ -56,18 +56,36 @@ exports.save = (bills, callback) ->
 
 exports.calculate = (bills) ->
   res = {}
+
+  groupHack = {
+    chris: "chris+liz"
+    craig: "jon+craig"
+    frances: "frances"
+    helena: "helena"
+    ivan: "ivan+letizia"
+    jon: "jon+craig"
+    letizia: "ivan+letizia"
+    liz: "chris+liz"
+    melissa: "mel+waldo"
+    waldo: "mel+waldo"
+  }
+
   for bill in bills
-    res[bill.payer] = {paid: 0, share: 0, owed: 0} unless res[bill.payer]?
-    res[bill.payer].paid += parseFloat bill.amount
-    res[bill.payer].owed = res[bill.payer].paid - res[bill.payer].share  
+    groupedPayer = groupHack[bill.payer]
+    res[groupedPayer] = {paid: 0, share: 0, owed: 0} unless res[groupedPayer]?
+    amt = parseFloat bill.amount
+    res[groupedPayer].paid += amt
+    res[groupedPayer].owed += amt
     for payee in bill.payees
-      res[payee] = {paid: 0, share: 0, owed: 0} unless res[payee]?
+      groupedPayee = groupHack[payee]
+      res[groupedPayee] = {paid: 0, share: 0, owed: 0} unless res[groupedPayee]?
 
       len = 1
       len = bill.payees.length unless typeof bill.payees == "string"
 
-      res[payee].share += parseFloat(bill.amount) / len
-      res[payee].owed = res[payee].paid - res[payee].share  
+      share = parseFloat(bill.amount) / len
+      res[groupedPayee].share += share
+      res[groupedPayee].owed -= share
   
   summary = []
   
