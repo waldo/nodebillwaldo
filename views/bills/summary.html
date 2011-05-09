@@ -1,12 +1,5 @@
 <div class="to-pay">
   <div class="mini-form twocol">
-    <form class="mini-bill" method="post" action="/new">
-      <input id="payer" type="hidden" name="bill[payer]" value="${summary.payer}" />
-      <input id="description" type="hidden" name="bill[description]" value="Payment" />
-      <input id="amount" type="hidden" name="bill[amount]" value="${summary.amount}" />
-      <input id="payees" type="hidden" name="bill[payees]" value="${summary.recipient}" />
-      <input id="submit" type="submit" value="Pay" />
-    </form>
   </div>
   <div class="ninecol">
     <span class="payer">${summary.payer}</span> to pay <span class="recipient">${summary.recipient}</span> - €<span class="amount">${summary.amount}</span> - £<span class="amount">${summary.convertedAmount}</span>
