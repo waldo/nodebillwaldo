@@ -106,6 +106,7 @@ exports.calculate = (bills) ->
           payer: neg.name
           recipient: pos.name
           amount: parseInt(amt*100)/100.0
+          convertedAmount: parseInt(amt*0.92*100)/100.0
         pos.owed -= amt
         neg.owed += amt
 
